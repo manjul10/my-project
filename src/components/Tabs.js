@@ -14,7 +14,7 @@ export function TabsDemo() {
         <TabsTrigger value="password">Password</TabsTrigger>
       </TabsList>
       <TabsContent value="account">
-        
+        {/* Yo thik xa */}
       </TabsContent>
       <TabsContent value="password">
       

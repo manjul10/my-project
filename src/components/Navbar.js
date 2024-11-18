@@ -7,6 +7,16 @@ import { Bars3Icon, XMarkIcon, PlusIcon } from "@heroicons/react/24/outline";
 import Claims from "./Claims";
 import TransactionCard from "./TransactionCard";
 import { TabsDemo } from "./Tabs";
+
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../components/ui/dialog"
 const navigation = [
   { name: "Home", href: "#", current: false },
   { name: "Claims", href: "#", current: true },
@@ -116,6 +126,7 @@ export default function Navbar() {
       <div className=" max-w-6xl  mx-auto  pb-12">
         <Claims />
         <TransactionCard />
+
         <TabsDemo />
       </div>
     </Disclosure>

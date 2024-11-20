@@ -4,19 +4,7 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon, PlusIcon } from "@heroicons/react/24/outline";
-import Claims from "./Claims";
-import TransactionCard from "./TransactionCard";
-import { TabsDemo } from "./Tabs";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../components/ui/dialog"
 const navigation = [
   { name: "Home", href: "#", current: false },
   { name: "Claims", href: "#", current: true },
@@ -33,7 +21,6 @@ export default function Navbar() {
       <div className="mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            {/* Mobile menu button*/}
             <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
               <span className="absolute -inset-0.5" />
               <span className="sr-only">Open main menu</span>
@@ -123,12 +110,6 @@ export default function Navbar() {
           ))}
         </div>
       </DisclosurePanel>
-      <div className=" max-w-6xl  mx-auto  pb-12">
-        <Claims />
-        <TransactionCard />
-
-        <TabsDemo />
-      </div>
     </Disclosure>
   );
 }

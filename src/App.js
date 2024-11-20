@@ -1,17 +1,13 @@
-import './App.css';
-// import Claims from './components/Claims';
-import Navbar from './components/Navbar';
+import "./App.css";
+import Navbar from "./components/Navbar";
+import ServiceBody from "./components/ServiceBody";
 
 function App() {
   return (
-<>
-
-<Navbar/>
-
-
-</>
-  
-   
+    <>
+      <Navbar />
+      <ServiceBody />
+    </>
   );
 }
 

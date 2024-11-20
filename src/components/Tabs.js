@@ -7,35 +7,23 @@ import {
 import { useState, useEffect, useRef } from "react";
 
 import {
-  MessageCircle,
-  FileText,
-  Upload,
-  ChevronDown,
-  ChevronUp,
-  PlusIcon,
-  MinusIcon,
-} from "lucide-react";
-
-import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "../components/ui/dialog";
 
 import BillingTable from "./pages/BillingTable";
 import AccountComponent from "./pages/AccountComponent";
-import ServiceDetails from "./pages/ServiceDetails";
 import TotalsTable from "./pages/TotalsTable";
 import PaymentSubmission from "./pages/PaymentSubmission";
+import OtherDetailsCard from "./pages/OtherDetails";
+import { ServiceDetails } from "./pages/ServiceDetails";
 
 export function TabsDemo() {
   const [isSticky, setIsSticky] = useState(false);
   const headerRef = useRef(null);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -110,7 +98,9 @@ export function TabsDemo() {
           <TotalsTable />
         </TabsContent>
 
-        <TabsContent value="others"></TabsContent>
+        <TabsContent value="others">
+          <OtherDetailsCard />
+        </TabsContent>
       </Tabs>
     </Dialog>
   );

@@ -1,5 +1,5 @@
-import React from 'react';
-import { CheckIcon } from 'lucide-react';
+import React from "react";
+import { CheckIcon } from "lucide-react";
 
 const SuccessScreen = () => {
   return (
@@ -10,17 +10,15 @@ const SuccessScreen = () => {
           Feel free to send us a message with any extra details or files
         </p>
 
-        {/* Animated checkmark container */}
         <div className="flex justify-center py-8">
           <div className="animate-bounce">
-            <CheckIcon 
-              size={64} 
+            <CheckIcon
+              size={64}
               className="text-emerald-600 animate-[spin_1s_ease-in-out]"
             />
           </div>
         </div>
 
-        {/* Timeline items */}
         <div className="space-y-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
@@ -47,7 +45,6 @@ const SuccessScreen = () => {
           </div>
         </div>
 
-        {/* Action buttons */}
         <div className="flex gap-4 pt-4">
           <button className="flex-1 px-4 py-2 text-sm border border-gray-300 rounded-full hover:bg-gray-50">
             Send message

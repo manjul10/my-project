@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Upload, ChevronDown, FileText } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
+import SuccessScreen from "./SuccessScreen";
 
 export default function PaymentSubmission() {
-  const [files, setFiles] = useState([]);
   const [isChecked, setIsChecked] = useState(false);
 
   const handleDragOver = (e) => {
@@ -11,7 +12,12 @@ export default function PaymentSubmission() {
 
   const handleDrop = (e) => {
     e.preventDefault();
-    // Handle file drop logic here
+  };
+
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked(true);
   };
 
   return (
@@ -21,18 +27,16 @@ export default function PaymentSubmission() {
         You need to upload invoice and confirm payment method
       </p>
 
-      {/* Invoice Total */}
       <div className="border rounded-lg mb-6">
-      <div className="flex items-center gap-3 p-4 justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-2 h-2 rounded-full bg-green-500"></div>
-          <span className="font-semibold">$900.55</span>
+        <div className="flex items-center gap-3 p-4 justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-2 h-2 rounded-full bg-green-500"></div>
+            <span className="font-semibold">$900.55</span>
+          </div>
+          <span className="text-gray-500 text-sm ">Invoice total</span>
         </div>
-        <span className="text-gray-500 text-sm ">Invoice total</span>
-      </div>
       </div>
 
-      {/* Upload Section */}
       <div className="mb-6">
         <p className="text-sm font-medium mb-2">Upload Invoice</p>
         <div
@@ -55,7 +59,6 @@ export default function PaymentSubmission() {
         </div>
       </div>
 
-      {/* Selected Files */}
       <div className="mb-6">
         <div className="flex justify-between text-sm mb-3">
           <span>Select Invoice from Files</span>
@@ -63,7 +66,12 @@ export default function PaymentSubmission() {
         </div>
 
         <div className="grid grid-cols-3 gap-3">
-          <div className="border rounded-lg p-3 flex flex-col items-center">
+          <div
+            className={`border rounded-lg p-3 flex flex-col items-center transition-shadow duration-300 ${
+              isClicked ? "shadow-lg" : ""
+            }`}
+            onClick={handleClick}
+          >
             <FileText size={20} className="text-gray-500 mb-1" />
             <p className="text-xs text-gray-600">Invoice</p>
             <p className="text-xs text-gray-400">07934.docx</p>
@@ -81,7 +89,6 @@ export default function PaymentSubmission() {
         </div>
       </div>
 
-      {/* Payment Method */}
       <div className="mb-6">
         <div className="flex justify-between mb-2">
           <span className="text-sm">Payment method</span>
@@ -99,7 +106,6 @@ export default function PaymentSubmission() {
         </div>
       </div>
 
-      {/* Checkbox */}
       <div className="flex items-center gap-2 mb-6">
         <input
           type="checkbox"
@@ -110,13 +116,26 @@ export default function PaymentSubmission() {
         <span className="text-sm">All related invoices are provided</span>
       </div>
 
-      {/* Buttons */}
       <div className="flex justify-between">
         <button className="text-sm text-gray-600">Cancel</button>
-        <button className="bg-black text-white px-4 py-2 rounded-full text-sm">
-          Submit for payment
-        </button>
+        <SuccessScreens />
       </div>
     </div>
   );
 }
+export const SuccessScreens = () => {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <button className="bg-black text-white px-4 py-2 rounded-full text-sm">
+          Submit for payment
+        </button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <div>
+          <SuccessScreen />
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+};
